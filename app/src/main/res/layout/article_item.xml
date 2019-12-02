@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="articleModelResult"
+            type="com.pack.nytimearticle.model.Result"/>
+
+        <variable name="itemClickListener"
+            type="com.pack.nytimearticle.interfaceListener.ArticleListener"/>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true">
+
+
+
+            <RelativeLayout
+                android:id="@+id/ConsLayout"
+                android:layout_width="match_parent"
+                android:onClick="@{() -> itemClickListener.getArticle(articleModelResult)}"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/ivPic"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/img"
+
+                    android:layout_marginLeft="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvArticleTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toRightOf="@id/ivPic"
+                    android:padding="4dp"
+                    android:text="@{articleModelResult.title}"
+
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+
+                    tools:text="Morris" />
+
+                <TextView
+                    android:id="@+id/tvArticleSubHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvArticleTitle"
+                    android:layout_toRightOf="@id/ivPic"
+                    android:padding="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:text="@{articleModelResult.byline}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+
+                    tools:text="morris@gmail.com"/>
+
+
+                <TextView
+                    android:id="@+id/tvArticleDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_below="@+id/tvArticleSubHeading"
+                    android:layout_alignParentRight="true"
+                    android:text="@{articleModelResult.publishedDate}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12sp"
+                    android:drawablePadding="4dp"
+                    android:drawableLeft="@drawable/icon_calander"
+                    tools:text="123"/>
+
+                <ImageView
+                    android:id="@+id/tvArticleArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_more"
+
+
+                    />
+
+
+            </RelativeLayout>
+
+    </LinearLayout>
+</layout>
